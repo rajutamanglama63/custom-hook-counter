@@ -1,42 +1,39 @@
-// import { useState } from 'react'
-import useCounter from './useCounter'
-const App = (props) => {
-  // const [counter, setCounter] = useState(0)
+import useField from "./useField"
 
-  const counter = useCounter();
-  const buttonCounter = useCounter();
-
-  return (
-    <div>
+const App = () => {
+    const name = useField("type")
+    const born = useField("date")
+    const height = useField("height")
+  
+    return (
       <div>
-        <h1>Counter</h1>
-        <div>{counter.value}</div>
-        <button onClick={counter.increase}>
-          plus
-        </button>
-        <button onClick={counter.decrease}>
-          minus
-        </button>      
-        <button onClick={counter.zero}>
-          zero
-        </button>
+        <form>
+          name: 
+          <input
+            type={name.type}
+            value={name.value}
+            onChange={name.onChange} 
+          /> 
+          <br/> 
+          birthdate:
+          <input
+            type={born.type}
+            value={born.value}
+            onChange={born.onChange}
+          />
+          <br /> 
+          height:
+          <input
+            type={height.type}
+            value={height.value}
+            onChange={height.onChange}
+          />
+        </form>
+        <div>
+          {name.value} {born.value} {height.value} 
+        </div>
       </div>
+    )
+  }
 
-      <div>
-        <h1>Button counter</h1>
-        <div>{buttonCounter.value}</div>
-        <button onClick={buttonCounter.increase}>
-          plus
-        </button>
-        <button onClick={buttonCounter.decrease}>
-          minus
-        </button>      
-        <button onClick={buttonCounter.zero}>
-          zero
-        </button>
-      </div>
-    </div>
-  )
-}
-
-export default App;
+  export default App
