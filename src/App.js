@@ -24,9 +24,7 @@ const App = () => {
           <br /> 
           height:
           <input
-            type={height.type}
-            value={height.value}
-            onChange={height.onChange}
+            {...height}
           />
         </form>
         <div>
